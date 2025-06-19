@@ -27,6 +27,7 @@ data <- vroom::vroom(pathToData, delim = ";", col_types = csvCols, na = c("?", "
   filter(Date == filterDates[1] | Date == filterDates[2]) %>%
   mutate(Time = hms(Time), datetime = Date + Time)
 
+png("plot4.png", width=480, height=480)
 par(mfrow = c(2,2))
 
 # plot top left
@@ -48,5 +49,4 @@ legend("topright", legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_
 plot(Global_reactive_power ~ datetime, data,type = "l", xaxt = "n")
 axis(1, at = ymd_hms("2007-02-01 00:00:00", "2007-02-02 00:00:00", "2007-02-03 00:00:00"), labels = c("Thu", "Fri", "Sat"))
 
-dev.copy(png, file = "Plot4.png",width = 480, height = 480)
 dev.off()
