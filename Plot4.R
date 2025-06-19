@@ -42,7 +42,7 @@ plot(Sub_metering_1 ~ datetime, data, type = "l", xlab = "", ylab = "Energy sub 
 lines(data$datetime, data$Sub_metering_2, col = "red")
 lines(data$datetime, data$Sub_metering_3, col = "blue")
 axis(1, at = ymd_hms("2007-02-01 00:00:00", "2007-02-02 00:00:00", "2007-02-03 00:00:00"), labels = c("Thu", "Fri", "Sat"))
-legend("topright", legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"), col = c("black", "red", "blue"), lty = 1)
+legend("topright", legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"), col = c("black", "red", "blue"), lty = 1, bty = "n")
 
 # plot bottom right
 plot(Global_reactive_power ~ datetime, data,type = "l", xaxt = "n")
