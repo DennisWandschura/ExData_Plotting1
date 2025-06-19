@@ -27,7 +27,7 @@ data <- vroom::vroom(pathToData, delim = ";", col_types = csvCols, na = c("?", "
   filter(Date == filterDates[1] | Date == filterDates[2]) %>%
   mutate(Time = hms(Time), datetime = Date + Time)
 
-png("plot4.png", width=480, height=480)
+png("Plot4.png", width=480, height=480)
 par(mfrow = c(2,2))
 
 # plot top left

@@ -27,6 +27,7 @@ data <- vroom::vroom(pathToData, delim = ";", col_types = csvCols, na = c("?", "
   filter(Date == filterDates[1] | Date == filterDates[2]) %>%
   mutate(Time = hms(Time), DateTime = Date + Time)
 
+png("Plot3.png", width=480, height=480)
 # Construct the plot
 plot(Sub_metering_1 ~ DateTime, data, type = "l", xlab = "", ylab = "Energy sub metering", xaxt = "n")
 lines(data$DateTime, data$Sub_metering_2, col = "red")
@@ -35,5 +36,5 @@ axis(1, at = ymd_hms("2007-02-01 00:00:00", "2007-02-02 00:00:00", "2007-02-03 0
 legend("topright", legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"), col = c("black", "red", "blue"), lty = 1)
 
 # save it to a PNG file with a width of 480 pixels and a height of 480 pixels
-dev.copy(png, file = "Plot3.png",width = 480, height = 480)
+#dev.copy(png, file = "Plot3.png",width = 480, height = 480)
 dev.off()
